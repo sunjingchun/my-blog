@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Home from './pages/Home'
-import Blog from './pages/Blog'
-import Post from './pages/Post'
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
+import Home from './pages/Home.jsx'
+import Blog from './pages/Blog.jsx'
+import Post from './pages/Post.jsx'
 
 
 export default function App() {
