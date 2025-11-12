@@ -1,4 +1,5 @@
-import React from 'react'
+import { Buffer } from 'buffer'
+window.Buffer = Buffer         // 或 globalThis.Buffer = Bufferimport React from 'react'
 import { createRoot } from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
 import App from './App.jsx'
