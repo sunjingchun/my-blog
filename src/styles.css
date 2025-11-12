@@ -64,7 +64,8 @@ line-height: 1.75;
 .post h1 { margin-bottom: 0; }
 .post .post-content h2, .post .post-content h3 { margin-top: 1.6em; }
 .post .post-content img { max-width: 100%; border-radius: 12px; box-shadow: var(--shadow); }
-
+.post .post-content img { max-width: 100%; border-radius: 12px }
+.post .post-content h2, .post .post-content h3 { margin-top: 1.6em }
 
 /* Focus ring */
 :focus { outline: none; box-shadow: 0 0 0 4px var(--ring); border-radius: 8px; }
