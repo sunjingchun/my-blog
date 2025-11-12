@@ -1,25 +1,34 @@
-// src/pages/Post.jsx
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
-import matter from 'gray-matter'
+import fm from 'front-matter'   // ✅ 替换 gray-matter
 
 // 按需加载每一篇文章（非 eager，体积更小）
 const modules = import.meta.glob('../posts/*.md', { as: 'raw' })
 
 export default function Post() {
   const { slug } = useParams()
-  const [data, setData] = useState({ title: '', date: '', tags: [], content: '' })
+  const [data, setData] = useState({
+    title: '',
+    date: '',
+    tags: [],
+    content: ''
+  })
+
   const mdPath = `../posts/${slug}.md`
 
   useEffect(() => {
     if (!modules[mdPath]) return
+
     modules[mdPath]().then(raw => {
-      const { data: fm, content } = matter(raw)
+      const parsed = fm(raw)  // ✅ front-matter 解析
+      const fmData = parsed.attributes || {}  // ✅ 提取头部属性
+      const content = parsed.body || ''       // ✅ 提取正文
+
       setData({
-        title: fm?.title ?? slug,
-        date: fm?.date ?? '',
-        tags: fm?.tags ?? [],
+        title: fmData.title ?? slug,
+        date: fmData.date ?? '',
+        tags: fmData.tags ?? [],
         content
       })
     })

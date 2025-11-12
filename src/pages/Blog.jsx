@@ -1,5 +1,5 @@
 import React from 'react'
-import matter from 'gray-matter'
+import fm from 'front-matter'
 import { Link } from 'react-router-dom'
 
 // 读取所有 Markdown 源文档（as: 'raw' 让我们拿到字符串），eager 让它在构建时一次性加载
