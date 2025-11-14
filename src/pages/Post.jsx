@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
-import fm from 'front-matter'   // ✅ 替换 gray-matter
-import { useState } from 'react'
+import fm from 'front-matter'
 
 // 按需加载每一篇文章（非 eager，体积更小）
 const modules = import.meta.glob('../posts/*.md', { as: 'raw' })
